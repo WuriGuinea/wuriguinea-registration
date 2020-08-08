@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Collections;
 import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -780,14 +781,15 @@ public class TemplateGenerator extends BaseService {
 			String value = getValue(registration.getDemographics().get(field.getId()));
 			if(value != null || !value.isEmpty() || !"".equals(value)) {
 				data.put("primaryLabel", field.getLabel().get("primary"));
-				data.put("secondaryLabel", field.getLabel().containsKey("secondary") ? 
+				data.put("layoutCategory", field.getLayoutCategory());
+				data.put("secondaryLabel", field.getLabel().containsKey("secondary") ?
 						field.getLabel().get("secondary") : RegistrationConstants.EMPTY);
 				data.put("primaryValue", getValueForTemplate(value, platformLanguageCode));
 				data.put("secondaryValue", getSecondaryLanguageValue(registration.getDemographics().get(field.getId()), localLanguageCode));
 				demographicsdata.add(data);
 			}			
 		}
-			
+
 		templateValues.put("demographicsdata", demographicsdata);
 		
 		if (!isChild) {
@@ -1166,6 +1168,7 @@ public class TemplateGenerator extends BaseService {
 		templateValues.put(RegistrationConstants.TEMPLATE_CONSENT_DATA, consentText);
 		templateValues.put(RegistrationConstants.TEMPLATE_CONSENT_YES, applicationLanguageProperties.getString("yes"));
 		templateValues.put(RegistrationConstants.TEMPLATE_CONSENT_NO, applicationLanguageProperties.getString("no"));
+
 		if (registration.getRegistrationMetaDataDTO().getConsentOfApplicant() != null) {
 			String consent = registration.getRegistrationMetaDataDTO().getConsentOfApplicant();
 			if (consent.equalsIgnoreCase(RegistrationConstants.YES)) {

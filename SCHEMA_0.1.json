@@ -182,7 +182,7 @@
       "requiredOn": [],
       "subType": "Phone",
       "contactType": "email",
-      "group": "No. de tél. portable",
+      "group": "No. de Tél. Portable",
       "layoutCategory": "Info"
     },
     {
@@ -212,6 +212,29 @@
       "subType": "Email",
       "contactType": "email",
       "group": "E-mail",
+      "layoutCategory": "Info"
+    },
+    {
+      "id": "residenceStatus",
+      "inputRequired": true,
+      "type": "simpleType",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "residenceStatus",
+      "label": {
+        "primary": "Nationalité"
+      },
+      "controlType": "dropdown",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [],
+      "fieldCategory": "kyc",
+      "required": true,
+      "bioAttributes": null,
+      "requiredOn": [],
+      "subType": "residenceStatus",
+      "contactType": null,
+      "group": "Nationalité",
       "layoutCategory": "Info"
     },
     {
@@ -394,7 +417,7 @@
       ],
       "subType": "parentOrGuardianFirstName",
       "contactType": null,
-      "group": "Info. du parent/tuteur",
+      "group": "Info. du Parent/Tuteur",
       "layoutCategory": "Parent"
     },
     {
@@ -428,7 +451,7 @@
       ],
       "subType": "parentOrGuardianLastName",
       "contactType": null,
-      "group": "Info. du parent/tuteur",
+      "group": "Info. du Parent/Tuteur",
       "layoutCategory": "Parent"
     },
     {
@@ -455,7 +478,7 @@
       ],
       "subType": "RID",
       "contactType": null,
-      "group": "Info. du parent/tuteur",
+      "group": "Info. du Parent/Tuteur",
       "layoutCategory": "Parent"
     },
     {
@@ -482,31 +505,8 @@
       ],
       "subType": "UIN",
       "contactType": null,
-      "group": "Info. du parent/tuteur",
+      "group": "Info. du Parent/Tuteur",
       "layoutCategory": "Parent"
-    },
-    {
-      "id": "residenceStatus",
-      "inputRequired": true,
-      "type": "simpleType",
-      "minimum": 0,
-      "maximum": 0,
-      "description": "residenceStatus",
-      "label": {
-        "primary": "Nationalité"
-      },
-      "controlType": "dropdown",
-      "fieldType": "default",
-      "format": "none",
-      "validators": [],
-      "fieldCategory": "kyc",
-      "required": true,
-      "bioAttributes": null,
-      "requiredOn": [],
-      "subType": "residenceStatus",
-      "contactType": null,
-      "group": "Nationalité",
-      "layoutCategory": "Info"
     },
     {
       "id": "individualBiometrics",

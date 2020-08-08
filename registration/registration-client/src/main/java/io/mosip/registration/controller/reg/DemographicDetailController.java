@@ -243,7 +243,9 @@ public class DemographicDetailController extends BaseController {
             while (iterator.hasNext()) {
                 UiSchemaDTO left = null;
                 UiSchemaDTO dto = iterator.next().getValue();
-                if (dto.getLayoutCategory() != null && dto.getLayoutCategory().equalsIgnoreCase("info")) {
+
+                if (dto.getLayoutCategory() != null
+                        && dto.getLayoutCategory().equalsIgnoreCase("info")) {
                     if (isDemographicField(dto)) {
                         left = dto;
                     }
@@ -252,7 +254,10 @@ public class DemographicDetailController extends BaseController {
                         UiSchemaDTO right = null;
                         if (iterator.hasNext()) {
                             dto = iterator.next().getValue();
-                            if (isDemographicField(dto)) {
+                            if (dto.getLayoutCategory() != null
+                                    && dto.getLayoutCategory().equalsIgnoreCase("info")
+                                    && isDemographicField(dto))
+                            {
                                 right = dto;
                             }
                         }
@@ -261,10 +266,10 @@ public class DemographicDetailController extends BaseController {
                         position1++;
                         positionTracker.put(mainGridPane.getId(), position1);
                     }
-                    continue;
                 }
 
-                if (dto.getLayoutCategory() != null && dto.getLayoutCategory().equalsIgnoreCase("address")) {
+                if (dto.getLayoutCategory() != null
+                        && dto.getLayoutCategory().equalsIgnoreCase("address")) {
                     if (isDemographicField(dto)) {
                         left = dto;
                     }
@@ -273,7 +278,10 @@ public class DemographicDetailController extends BaseController {
                         UiSchemaDTO right = null;
                         if (iterator.hasNext()) {
                             dto = iterator.next().getValue();
-                            if (isDemographicField(dto)) {
+                            if (dto.getLayoutCategory() != null
+                                    && dto.getLayoutCategory().equalsIgnoreCase("address")
+                                    && isDemographicField(dto))
+                            {
                                 right = dto;
                             }
                         }
@@ -284,7 +292,8 @@ public class DemographicDetailController extends BaseController {
                     }
                     continue;
                 }
-                if (dto.getLayoutCategory() != null && dto.getLayoutCategory().equalsIgnoreCase("parent")) {
+                if (dto.getLayoutCategory() != null
+                        && dto.getLayoutCategory().equalsIgnoreCase("parent")) {
                     if (isDemographicField(dto)) {
                         left = dto;
                     }
@@ -293,7 +302,10 @@ public class DemographicDetailController extends BaseController {
                         UiSchemaDTO right = null;
                         if (iterator.hasNext()) {
                             dto = iterator.next().getValue();
-                            if (isDemographicField(dto)) {
+                            if (dto.getLayoutCategory() != null
+                                    && dto.getLayoutCategory().equalsIgnoreCase("parent")
+                                    && isDemographicField(dto))
+                            {
                                 right = dto;
                             }
                         }
