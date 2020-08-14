@@ -1,0 +1,19 @@
+----------------------------------------------------------------
+Thu Jul 23 13:51:10 UTC 2020:
+Amorçage de Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579) : instance a816c00e-0173-7bf1-2ec9-00001dc24d88 
+dans le répertoire de base de données C:\Users\hp\IdeaProjects\wuriguinea-registration\db\reg avec le chargeur de classe sun.misc.Launcher$AppClassLoader@66d3c617
+Chargé de file:/C:/Program%20Files/db-derby-10.14.2.0-bin/db-derby-10.14.2.0-bin/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_231-b11
+user.dir=C:\Users\hp\IdeaProjects\wuriguinea-registration\db
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Chargeur de classe de la base de données démarré - derby.database.classpath = ''
+----------------------------------------------------------------
+Thu Jul 23 13:51:19 UTC 2020 : fermeture du moteur Derby
+----------------------------------------------------------------
+Thu Jul 23 13:51:19 UTC 2020:
+Fermeture de l'instance a816c00e-0173-7bf1-2ec9-00001dc24d88 sur le répertoire de base de données C:\Users\hp\IdeaProjects\wuriguinea-registration\db\reg avec le chargeur de classe sun.misc.Launcher$AppClassLoader@66d3c617 
+----------------------------------------------------------------
