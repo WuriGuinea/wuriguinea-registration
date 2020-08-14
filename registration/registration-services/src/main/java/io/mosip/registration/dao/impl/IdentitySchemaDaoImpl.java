@@ -136,10 +136,11 @@ public class IdentitySchemaDaoImpl implements IdentitySchemaDao {
 			throw new RegBaseCheckedException(SchemaMessage.SCHEMA_FILE_NOT_FOUND.getCode(), 
 					filePath + " : " +ExceptionUtils.getStackTrace(e));
 		}
+		/*
 		//TODO enable later
 		if(!isValidFile(content, originalChecksum))
 			throw new RegBaseCheckedException(SchemaMessage.SCHEMA_TAMPERED.getCode(), 
-					filePath + " : " +SchemaMessage.SCHEMA_TAMPERED.getMessage());
+					filePath + " : " +SchemaMessage.SCHEMA_TAMPERED.getMessage()); */
 		
 		try {
 			SchemaDto dto = MapperUtils.convertJSONStringToDto(content, 
