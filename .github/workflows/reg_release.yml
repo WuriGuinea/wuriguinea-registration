@@ -59,7 +59,7 @@ jobs:
       run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
 
     - name: Push image
-    run: |
+      run: |
         IMAGE_ID=$NAMESPACE/$SERVICE_NAME
         # Change all uppercase to lowercase
         IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
@@ -69,4 +69,5 @@ jobs:
         echo VERSION=$VERSION
         docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
         docker push $IMAGE_ID:$VERSION
-        
+
+
