@@ -10,6 +10,11 @@ on:
 jobs:
   BuildandRelease:
     runs-on: ubuntu-latest
+    env:
+      NAMESPACE: ${{ secrets.dev_namespace_docker_hub }}
+      SERVICE_NAME: artifactory-service
+      #SERVICE_LOCATION: pre-registration-ui
+
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
@@ -44,17 +49,24 @@ jobs:
     - name:  Copy libraries
       run: make copy_libs
 
-    - name: Archive Release
-      uses: thedoctor0/zip-release@master
-      with:
-        filename: 'release.zip'
-        path: "./guinean-reg-client"
-        type: zip
+    - name:  Zip the final directory
+      run: make zip_the_final_directory
 
-    - name: Upload Release
-      uses: ncipollo/release-action@v1
-      with:
-        artifacts: "release.zip"
-        token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Build image
+      run: docker build . --file Dockerfile-For-Artifactory  --build-arg REG_VERSION=$BRANCH_NAME --tag $SERVICE_NAME
 
+    - name: Log into registry
+      run: echo "${{ secrets.release_docker_hub }}" | docker login -u ${{ secrets.actor_docker_hub }} --password-stdin
 
+    - name: Push image
+    run: |
+        IMAGE_ID=$NAMESPACE/$SERVICE_NAME
+        # Change all uppercase to lowercase
+        IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+        VERSION=$BRANCH_NAME
+        echo "push version $VERSION"
+        echo IMAGE_ID=$IMAGE_ID
+        echo VERSION=$VERSION
+        docker tag $SERVICE_NAME $IMAGE_ID:$VERSION
+        docker push $IMAGE_ID:$VERSION
+        
