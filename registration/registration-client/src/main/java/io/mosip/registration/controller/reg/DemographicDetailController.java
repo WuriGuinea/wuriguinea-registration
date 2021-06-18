@@ -778,9 +778,9 @@ public class DemographicDetailController extends BaseController {
 				putIntoLabelMap(fieldName + languageType, schema.getLabel().get(RegistrationConstants.PRIMARY));
 				label.setText(schema.getLabel().get(RegistrationConstants.PRIMARY) + RegistrationConstants.STARWITHSPACE );
 		}
-		 //complement address limit max caracteres 40
-		else if(fieldName.equalsIgnoreCase("additionalAddressDetails")) {
-			addTextLimiter(field,40);
+		 //complement address, first and last Name limit max caracteres 120
+		else if(fieldName.equalsIgnoreCase("additionalAddressDetails") || fieldName.equalsIgnoreCase("firstName") || fieldName.equalsIgnoreCase("lastName")) {
+			addTextLimiter(field,120);
 			field.setPromptText(schema.getLabel().get(RegistrationConstants.PRIMARY));
 			putIntoLabelMap(fieldName + languageType, schema.getLabel().get(RegistrationConstants.PRIMARY));
 			label.setText(schema.getLabel().get(RegistrationConstants.PRIMARY));
