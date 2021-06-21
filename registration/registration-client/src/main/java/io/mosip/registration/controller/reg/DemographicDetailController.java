@@ -771,16 +771,13 @@ public class DemographicDetailController extends BaseController {
 			fxUtils.populateLocalFieldWithFocus(parentFlowPane, listOfTextField.get(fieldName), field,
 					hasToBeTransliterated, validation);
 		listOfTextField.put(field.getId(), field);
-		if (!(fieldName.equalsIgnoreCase(
-				"phone") || fieldName.equalsIgnoreCase("email") || fieldName.equalsIgnoreCase("additionalAddressDetails")))
+
+		 //complement address, first and last Name limit max caracteres 40
+		if(fieldName.equalsIgnoreCase("additionalAddressDetails") || fieldName.equalsIgnoreCase("firstName") ||
+				fieldName.equalsIgnoreCase("lastName") || fieldName.equalsIgnoreCase("parentOrGuardianFirstName") ||
+				fieldName.equalsIgnoreCase("parentOrGuardianLastName"))
 		{
-				field.setPromptText(schema.getLabel().get(RegistrationConstants.PRIMARY) + RegistrationConstants.STARWITHSPACE);
-				putIntoLabelMap(fieldName + languageType, schema.getLabel().get(RegistrationConstants.PRIMARY));
-				label.setText(schema.getLabel().get(RegistrationConstants.PRIMARY) + RegistrationConstants.STARWITHSPACE );
-		}
-		 //complement address, first and last Name limit max caracteres 120
-		else if(fieldName.equalsIgnoreCase("additionalAddressDetails") || fieldName.equalsIgnoreCase("firstName") || fieldName.equalsIgnoreCase("lastName")) {
-			addTextLimiter(field,120);
+			addTextLimiter(field,40);
 			field.setPromptText(schema.getLabel().get(RegistrationConstants.PRIMARY));
 			putIntoLabelMap(fieldName + languageType, schema.getLabel().get(RegistrationConstants.PRIMARY));
 			label.setText(schema.getLabel().get(RegistrationConstants.PRIMARY));
@@ -801,6 +798,12 @@ public class DemographicDetailController extends BaseController {
 					}
 				}
 			});
+		}else if (!(fieldName.equalsIgnoreCase(
+				"phone") || fieldName.equalsIgnoreCase("email") || fieldName.equalsIgnoreCase("additionalAddressDetails")))
+		{
+			field.setPromptText(schema.getLabel().get(RegistrationConstants.PRIMARY) + RegistrationConstants.STARWITHSPACE);
+			putIntoLabelMap(fieldName + languageType, schema.getLabel().get(RegistrationConstants.PRIMARY));
+			label.setText(schema.getLabel().get(RegistrationConstants.PRIMARY) + RegistrationConstants.STARWITHSPACE );
 		}
 		else{
 			field.setPromptText(schema.getLabel().get(RegistrationConstants.PRIMARY));
