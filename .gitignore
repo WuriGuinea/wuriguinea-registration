@@ -10,3 +10,5 @@ logs
 /registration/registration-services/registration-services.iml
 .DS_Store
 guinea-reg-client.zip
+/registration/registration-libs/dependency-reduced-pom.xml
+/registration/registration-libs/src/main/resources/props/mosip-application.properties
