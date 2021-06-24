@@ -23,4 +23,6 @@ copy_libs:
 
 push_to_minio:
 	mc cp --r $(out_put_dir)  wuri/wuriguinea/registration-client/
+	mc rm wury/wuriguinea/registration-client/maven-metadata.xml
+	mc cp maven-metadata.xml wury/wuriguinea/registration-client/maven-metadata.xml
 ##--- HHH ---
