@@ -19,7 +19,7 @@ copy_necessary_files:
 	cp $(reg_target)/MANIFEST.MF $(out_put_dir)
 
 copy_libs:
-	cp $(reg_target)/lib/* $(out_put_dir)/lib
+	cp -rv $(reg_target)/lib/* $(out_put_dir)/lib
 
 push_to_minio:
-	mc cp - $(out_put_dir)  wuri/wuriguinea/registration-client/
+	mc cp --r $(out_put_dir)  wuri/wuriguinea/registration-client/
